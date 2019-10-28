@@ -4,3 +4,32 @@
 img{
     width:100%;
 }
+
+body{
+    background-color: black;
+}
+#game{
+    color:white;
+    font-family: 'Cairo', sans-serif;
+    Text-align:center;
+}
+
+.correct{
+    color:white;
+    font-family: 'Cairo', sans-serif;
+}
+
+.incorrect{
+    color:white;
+    font-family: 'Cairo', sans-serif;
+}
+
+#timer{
+    color:white;
+    font-family: 'Cairo', sans-serif;
+    font-size: 20px;
+}
+.stats{
+    text-align:center;
+    font-size:30px;
+}

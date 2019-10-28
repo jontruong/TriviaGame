@@ -20,7 +20,7 @@ function decrement(){
     currentMins = Math.floor(secs/60);
     currentSecs = secs % 60;
     if ( currentSecs <= 9) currentSecs = "0" + currentSecs; secs--;
-    $("#timer").text(currentMins + ":" + currentSecs);
+    $("#timer").text("Time left: " + currentMins + ":" + currentSecs);
     // if(secs !== -1) 
     if(secs === -1){
         check();
@@ -60,7 +60,8 @@ function decrement(){
 
 // When a user selects the correct answer it gets added to the correct total
 //if it's incorrect gets added to incorrect total
-
+var correct = 0;
+var incorrect = 0;
 
 function check(){
     var question1 = document.quiz.q1.value;
@@ -70,8 +71,6 @@ function check(){
     var question5 = document.quiz.q5.value;
     var question6 = document.quiz.q6.value;
     var question7 = document.quiz.q7.value;
-    var correct = 0;
-    var incorrect = 0;
 
         if (question1 === "Hulk"){
             correct++;
@@ -123,16 +122,55 @@ function check(){
         }
 $(".done").on("click", function(){
     check();
-    alert("you won");
+    $('.correct').show()
+    $('.incorrect').show()
     $("#restart").show();
     $(".done").hide();
+    $("#quiz").hide();
 })
+
+function uncheck(){
+    document.getElementById("hulk").checked = false;
+    document.getElementById("iron-man").checked = false;
+    document.getElementById("thor").checked = false;
+    document.getElementById("vision").checked = false;
+    document.getElementById("4").checked = false;
+    document.getElementById("10").checked = false;
+    document.getElementById("8").checked = false;
+    document.getElementById("6").checked = false;
+    document.getElementById("earth").checked = false;
+    document.getElementById("vormir").checked = false;
+    document.getElementById("asgard").checked = false;
+    document.getElementById("ego").checked = false;
+    document.getElementById("gotham").checked = false;
+    document.getElementById("san").checked = false;
+    document.getElementById("asgard1").checked = false;
+    document.getElementById("wakanda").checked = false;
+    document.getElementById("ultron").checked = false;
+    document.getElementById("aldrich").checked = false;
+    document.getElementById("thanos").checked = false;
+    document.getElementById("hydra").checked = false;
+    document.getElementById("soul").checked = false;
+    document.getElementById("time").checked = false;
+    document.getElementById("power").checked = false;
+    document.getElementById("mind").checked = false;
+    document.getElementById("black").checked = false;
+    document.getElementById("iron").checked = false;
+    document.getElementById("thor2").checked = false;
+    document.getElementById("cap").checked = false;
+}
 function restart(){
      correct = 0;
      incorrect = 0;
      secs= 60;
      currentSecs = 0;
      currentMins = 0;
+    uncheck()
+     $('.correct').hide()
+     $('.incorrect').hide()
+     $(".done").show()
+     $("#restart").hide()
+     $("#quiz").show()
     
 }
 $("#restart").on("click", function(){
